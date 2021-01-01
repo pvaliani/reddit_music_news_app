@@ -24,6 +24,12 @@ function App() {
 
   };
 
+  // Invoke useEffect so that we can regularly get music news
+
+  useEffect(() => {
+    fetchMusicNews();
+  }, []);
+
 
 
   return (
