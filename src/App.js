@@ -7,13 +7,14 @@ import StoryList from './components/StoryList';
 
 function App() {
 
-  // Define stories will be kept as objects
-  const [stories, setStories] = useState([])
+  // Define stories will be kept as objects - **WAS AN ARRAY**
+  const [stories, setStories] = useState(null);
 
 
   // Fetch the data
   const fetchMusicNews = () => {
 
+    console.log("Fetching music news...");
     // Store API url in a variable for the fetch
     const url = `https://www.reddit.com/r/MusicNews/.json`;
     // Fetch returns a promise object - i.e before any conversion of .json
@@ -30,12 +31,13 @@ function App() {
     fetchMusicNews();
   }, []);
 
-
+  if(!stories) return null;
 
   return (
-   
-  "We'll return the header here later"
-
+    <>
+      <h1>This is the latest Reddit Music News!</h1>
+      <StoryList stories={stories.data.children}/>
+    </>
   );
 }
 
