@@ -18,4 +18,3 @@ const Story = ({title, url, thumbnail}) => {
 
 export default Story;
 
-// WHEN COMING BACK TO THIS TIDT THE STORY AND STORY LIST - USE THE TOP 20 FILE FOR REFERENCE ON OW TO POINT TO OBJECT PARAMETERS
