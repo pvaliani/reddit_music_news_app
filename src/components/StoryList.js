@@ -6,8 +6,9 @@ const StoryList = ({stories}) => {
 
         let title = story["data"].title;
         let url = story["data"].url;
+        let thumbnail = story["data"].thumbnail;
 
-        return (<Story title={title} url={url}/>);
+        return (<Story title={title} url={url} thumbnail={thumbnail}/>);
     })
 
     return(
