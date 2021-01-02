@@ -2,6 +2,7 @@
 import './App.css';
 import { useState, useEffect } from  'react';
 import StoryList from './components/StoryList';
+import NewsFilterForm from './components/NewsFilterForm';
 
 // Container for reddit stories state
 
@@ -9,6 +10,7 @@ function App() {
 
   // Define stories will be kept as objects - **WAS AN ARRAY**
   const [stories, setStories] = useState(null);
+  const [filteredNews, setFilteredNews] = useState(null);
 
 
   // Fetch the data
@@ -21,7 +23,14 @@ function App() {
     fetch(url)
     // .then returns another promise which is then converted to .json
     .then((response) => response.json()) 
-    .then((data) => setStories(data))
+    .then((data) => {
+      
+      
+    setStories(data);
+    setFilteredNews(data);
+    
+    
+    })
 
   };
 
