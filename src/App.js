@@ -25,17 +25,21 @@ function App() {
 
   };
 
-  // Invoke useEffect so that we can regularly get music news
+  // Invoke useEffect so that we can regularly get music news i.e upon a new fetch request
 
   useEffect(() => {
     fetchMusicNews();
   }, []);
 
+
+
   if(!stories) return null;
+
+  // React has to return something - the app container returns the stories to the storyList component. Stories.data.children is the path to the array on the Reddit MusicNews API. So we will return the full array to storyList component so that we can access it
 
   return (
     <>
-      <h1>This is the latest Reddit Music News!</h1>
+      <h1>This is the latest Music News from Reddit!</h1>
       <StoryList stories={stories.data.children}/>
     </>
   );
