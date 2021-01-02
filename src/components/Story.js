@@ -8,9 +8,8 @@ const Story = ({title, url}) => {
 
     return (
         <>  
-            <h2> Headline: {title}</h2>
-            <h4> Link: {url}</h4>
-            {/* <a href={story}>{story}</a> */}
+            <h4>    </h4>
+            <a href={url}>{title} </a>
         </>
     );
 }
