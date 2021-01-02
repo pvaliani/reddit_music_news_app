@@ -28,10 +28,17 @@ function App() {
       
     setStories(data);
     setFilteredNews(data);
-    
+  
     
     })
 
+  };
+
+  const handleUserFilter = (userInput) => {
+    const filteredNews = stories.filter((currentStory) => {
+      return currentStory.title.toUpperCase().includes(userInput.toUpperCase());
+    });
+    setFilteredNews(filteredNews);
   };
 
   // Invoke useEffect so that we can regularly get music news i.e upon a new fetch request
@@ -43,13 +50,17 @@ function App() {
 
 
   if(!stories) return null;
+  if(!filteredNews) return null;
 
   // React has to return something - the app container returns the stories to the storyList component. Stories.data.children is the path to the array on the Reddit MusicNews API. So we will return the full array to storyList component so that we can access it
 
   return (
     <>
       <h1>This is the latest Music News from Reddit!</h1>
-      <StoryList stories={stories.data.children}/>
+      <div>
+        <NewsFilterForm onUserInput={handleUserFilter}/>
+      </div>
+      <StoryList stories={stories.data.children} filteredstories={filteredNews}/>
     </>
   );
 }
