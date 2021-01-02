@@ -6,6 +6,8 @@ const NewsFilterForm = ({onUserInput}) => {
 
     };
 
+    // Create a new input text field where handleFilterInput is the input to onChange
+    
     return (
         <>
         <span>Filter By Story:</span>
@@ -18,7 +20,6 @@ const NewsFilterForm = ({onUserInput}) => {
 
     )
 
-
-
-
 };
+
+export default NewsFilterForm;
