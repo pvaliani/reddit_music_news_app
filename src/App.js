@@ -64,7 +64,7 @@ function App() {
       <div>
         <NewsFilterForm onUserInput={handleUserFilter}/>
       </div>
-      <StoryList stories={stories} filteredstories={filteredNews}/>
+      <StoryList stories={filteredNews}/>
     </>
   );
 }
