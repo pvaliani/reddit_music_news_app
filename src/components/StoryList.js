@@ -18,7 +18,7 @@ const StoryList = ({stories}) => {
     })
 
     // Return the storyNodes destructured array
-    
+
     return(
         <>
         {storyNodes}

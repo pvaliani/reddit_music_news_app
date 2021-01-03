@@ -8,7 +8,7 @@ import NewsFilterForm from './components/NewsFilterForm';
 
 function App() {
 
-  // Define stories will be kept as objects - **WAS AN ARRAY**
+  // Define stories and filteredNews which will be kept as objects
   const [stories, setStories] = useState(null);
   const [filteredNews, setFilteredNews] = useState(null);
 
@@ -25,19 +25,22 @@ function App() {
     .then((response) => response.json()) 
     .then((data) => {
       
-      
-    setStories(data);
-    setFilteredNews(data);
+    // Pass the json data to the state methods 
+    setStories(data.data.children);
+    setFilteredNews(data.data.children);
   
     
     })
 
   };
 
+  // Handle the filter input by filtering stories taking in a currentStory object ***FILTER ONLY WORKS WITH ARRAYS AND WE HAVE OBJECTS SO THIS DOESN'T WORK*** 
+
   const handleUserFilter = (userInput) => {
     const filteredNews = stories.filter((currentStory) => {
-      return currentStory.title.toUpperCase().includes(userInput.toUpperCase());
+      return currentStory["data"].title.toUpperCase().includes(userInput.toUpperCase());
     });
+    // setFilteredNews state method is passed the filteredNews from the filter
     setFilteredNews(filteredNews);
   };
 
@@ -52,7 +55,8 @@ function App() {
   if(!stories) return null;
   if(!filteredNews) return null;
 
-  // React has to return something - the app container returns the stories to the storyList component. Stories.data.children is the path to the array on the Reddit MusicNews API. So we will return the full array to storyList component so that we can access it
+  // React has to return something - the app container returns the stories to the storyList component. Stories.data.children is the path to the array on the Reddit MusicNews API. So we will return the full array to storyList component so that we can access it. We pass the filteredNews but this is an object....
+
 
   return (
     <>
@@ -60,7 +64,7 @@ function App() {
       <div>
         <NewsFilterForm onUserInput={handleUserFilter}/>
       </div>
-      <StoryList stories={stories.data.children} filteredstories={filteredNews}/>
+      <StoryList stories={stories} filteredstories={filteredNews}/>
     </>
   );
 }
