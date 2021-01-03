@@ -1,3 +1,5 @@
+// NewsFilterForm takes in user input text
+
 const NewsFilterForm = ({ onUserInput }) => {
 
     const handleFilterInput = (event) => {
