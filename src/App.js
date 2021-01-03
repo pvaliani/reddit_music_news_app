@@ -58,6 +58,8 @@ function App() {
   // React has to return something - the app container returns the stories to the storyList component. Stories.data.children is the path to the array on the Reddit MusicNews API. So we will return the full array to storyList component so that we can access it. We pass the filteredNews but this is an object....
 
 
+  // We pass storyList stories as a prop which is the filteredNews we are handling with a change of state to stories. Previouslty stories was being passed incorrectly as there were two props. filteredNews was previously assigned to another prop and was working as intended however it was not updating the actual stories in the story list which meant that the view was still rendering the full story list rather than the filtered one
+  
   return (
     <>
       <h1>This is the latest Music News from Reddit!</h1>

@@ -7,7 +7,7 @@ const StoryList = ({stories}) => {
     const storyNodes = stories.map((story) => {
 
         // Store title, url and img thumbnail as props to pass to story
-        // The path of the object data sought is written in relation to a story object key/value pair where we reference the value in relation to each parameter in the .json
+        // The path of the object data sought is written in relation to a story object key/value pair where we reference the value in relation to each parameter in the .json. ["data"] is the object key which stores the title, url and thumbnail properties
 
         let title = story["data"].title;
         let url = story["data"].url;
